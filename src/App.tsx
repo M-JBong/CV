@@ -47,8 +47,6 @@ const data = {
   ],
   gallery:[
     { title:"CO₂-to-Formate Conversion", tag:"Chem. Sci. 2026", desc:"TOC graphic for proton relay engineering in Mn(I) catalysts", hue:"210", img:"/CV/TOC_graphic.png" },
-    { title:"Tether Length Study", tag:"Ongoing", desc:"SCL modulation in Mn(I) bpy complexes", hue:"210", img:"" },
-    { title:"CURT Award", tag:"2021", desc:"Excellent Research Report Award", hue:"45", img:"" },
   ],
 };
 
@@ -379,11 +377,11 @@ export default function App() {
 
         {/* Gallery */}
         {tab === "Gallery" && (
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(210px,1fr))", gap:14 }}>
+          <div style={{ display:"grid", gridTemplateColumns:"1fr", gap:14 }}>
             {data.gallery.map((g, i) => (
               <div key={i} style={{ background:bgC, border:`1px solid ${bord}`, borderRadius:14, overflow:"hidden", boxShadow:dark?"0 2px 12px #00000030":"0 2px 12px #1d4ed808" }}>
-                <div style={{ height:160, background:g.img?"none":`linear-gradient(135deg,hsl(${g.hue},70%,${dark?"20%":"75%"}) 0%,hsl(${g.hue},55%,${dark?"30%":"90%"}) 100%)`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:28, overflow:"hidden" }}>
-                  {g.img ? <img src={g.img} alt={g.title} style={{ width:"100%", height:"100%", objectFit:"cover" }} /> : "⬡"}
+                <div style={{ background:g.img?"none":`linear-gradient(135deg,hsl(${g.hue},70%,${dark?"20%":"75%"}) 0%,hsl(${g.hue},55%,${dark?"30%":"90%"}) 100%)`, overflow:"hidden" }}>
+                  {g.img ? <img src={g.img} alt={g.title} style={{ width:"100%", height:"auto", display:"block" }} /> : "⬡"}
                 </div>
                 <div style={{ padding:"1rem 1.1rem" }}>
                   <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:5 }}>
