@@ -1,6 +1,4 @@
 // ── CV template for Min-Jong Bong ──
-#import "@preview/use-academicons:0.1.0": *
-
 #let data = yaml("cv.yml")
 
 #let accent = rgb("#1a2744")
