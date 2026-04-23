@@ -305,11 +305,7 @@ export default function App() {
 
       {/* CV PDF - full width outside 740px container */}
       {tab === "CV (PDF)" && (
-        <div style={{ padding:"1.75rem 1.5rem 5rem", display:"flex", flexDirection:"column", alignItems:"center", gap:12 }}>
-          <a href="https://m-jbong.github.io/CV/data/CV.pdf" target="_blank" rel="noreferrer"
-            style={{ fontSize:12, color:accC, textDecoration:"none", border:`1px solid ${accBC}`, borderRadius:8, padding:"5px 16px", background:accLC }}>
-            Download PDF
-          </a>
+        <div style={{ padding:"0 1.5rem 5rem" }}>
           <iframe
             src="https://m-jbong.github.io/CV/data/CV.pdf"
             style={{ width:"100%", height:"85vh", border:"none", borderRadius:12, boxShadow:dark?"0 4px 24px #00000040":"0 4px 24px #00000018" }}
