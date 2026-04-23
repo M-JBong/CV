@@ -124,7 +124,6 @@ export default function App() {
   const [tab, setTab] = useState("CV (Web)");
   const [dark, setDark] = useState(false);
 
-  const bg   = dark ? "#0f0f13" : "#ffffff";
   const bgS  = dark ? "#16161d" : "#f8f9fc";
   const bgC  = dark ? "#1c1c26" : "#ffffff";
   const text = dark ? "#e2e4f0" : "#0f1117";
