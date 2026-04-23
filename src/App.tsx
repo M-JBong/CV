@@ -46,7 +46,7 @@ const data = {
     { name:"Excellent Research Report Award", institution:"CURT Research Program, Korea University", year:"2021", detail:"" },
   ],
   gallery:[
-    { title:"CO₂-to-Formate Conversion", tag:"Chem. Sci. 2026", desc:"TOC graphic for proton relay engineering in Mn(I) catalysts", hue:"210", img:"https://M-JBong.github.io/CV/images/TOC_graphic.png" },
+    { title:"CO₂-to-Formate Conversion", tag:"Chem. Sci. 2026", desc:"TOC graphic for proton relay engineering in Mn(I) catalysts", hue:"210", img:"https://m-jbong.github.io/CV/images/TOC_graphic.png" },
     { title:"Tether Length Study", tag:"Ongoing", desc:"SCL modulation in Mn(I) bpy complexes", hue:"210", img:"" },
     { title:"CURT Award", tag:"2021", desc:"Excellent Research Report Award", hue:"45", img:"" },
   ],
@@ -54,18 +54,76 @@ const data = {
 
 const TABS = ["CV (Web)","Gallery","CV (PDF)"];
 
-const PdfSection = ({ title, children }) => (
+// ── 컴포넌트들을 App 밖으로 ──
+
+const EmailIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+  </svg>
+);
+const GithubIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+  </svg>
+);
+const ScholarIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+  </svg>
+);
+const OrcidIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 256 256" fill="none">
+    <circle cx="128" cy="128" r="128" fill="#A6CE39"/>
+    <path d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.5 10.1 10.1z" fill="white"/>
+  </svg>
+);
+
+const PdfSection = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div style={{ marginBottom:16 }}>
     <p style={{ fontSize:11, fontWeight:700, color:"#1a2744", textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 5px", paddingBottom:3, borderBottom:"1px solid #c8d0e8", fontFamily:"Georgia,serif" }}>{title}</p>
     {children}
   </div>
 );
 
+const boldName = (str: string) => str.replace(/Min-Jong Bong[†‡]?/g, (m: string) => `<strong>${m}</strong>`);
+
+// ── 색상 의존 컴포넌트는 props로 색상을 받음 ──
+
+interface CardProps { children: React.ReactNode; bg: string; bord: string; dark: boolean }
+const Card = ({ children, bg, bord, dark }: CardProps) => (
+  <div style={{ background:bg, border:`1px solid ${bord}`, borderRadius:14, padding:"1.4rem 1.6rem", marginBottom:14, boxShadow:dark?"0 2px 12px #00000030":"0 2px 12px #1d4ed808" }}>{children}</div>
+);
+
+interface SecTitleProps { icon?: string; children: React.ReactNode; textS: string; bord: string }
+const SecTitle = ({ icon, children, textS, bord }: SecTitleProps) => (
+  <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:"1.1rem", paddingBottom:"0.7rem", borderBottom:`1px solid ${bord}` }}>
+    {icon && <span style={{ fontSize:14 }}>{icon}</span>}
+    <p style={{ fontSize:11, fontWeight:700, color:textS, textTransform:"uppercase", letterSpacing:"0.09em", margin:0 }}>{children}</p>
+  </div>
+);
+
+interface PillProps { v: string; bord: string; bgS: string; textS: string }
+const Pill = ({ v, bord, bgS, textS }: PillProps) => (
+  <span style={{ fontSize:11, padding:"3px 10px", borderRadius:20, border:`1px solid ${bord}`, background:bgS, color:textS, whiteSpace:"nowrap" }}>{v}</span>
+);
+
+interface BadgeProps { v: string; green?: boolean; dark: boolean; accLC: string; accC: string; accBC: string }
+const Badge = ({ v, green, dark, accLC, accC, accBC }: BadgeProps) => {
+  const isLecturer = v === "Lecturer";
+  const bg = isLecturer ? (dark?"#2d1b00":"#fff7ed") : green ? (dark?"#052e16":"#f0fdf4") : accLC;
+  const color = isLecturer ? (dark?"#fb923c":"#c2410c") : green ? (dark?"#4ade80":"#15803d") : accC;
+  const border = isLecturer ? (dark?"#92400e":"#fed7aa") : green ? (dark?"#166534":"#bbf7d0") : accBC;
+  return <span style={{ fontSize:10, padding:"2px 9px", borderRadius:20, fontWeight:600, background:bg, color, border:`1px solid ${border}` }}>{v}</span>;
+};
+
+interface HrProps { bord: string }
+const Hr = ({ bord }: HrProps) => <div style={{ height:"1px", background:bord, margin:"1rem 0" }} />;
+
 export default function App() {
   const [tab, setTab] = useState("CV (Web)");
   const [dark, setDark] = useState(false);
 
-  const bg   = dark ? "#0f0f13" : "#ffffff";
   const bgS  = dark ? "#16161d" : "#f8f9fc";
   const bgC  = dark ? "#1c1c26" : "#ffffff";
   const text = dark ? "#e2e4f0" : "#0f1117";
@@ -78,30 +136,6 @@ export default function App() {
     ? "linear-gradient(160deg,#0a0618 0%,#0f0a2e 20%,#0d1a3a 45%,#1a0a3e 65%,#0a1628 85%,#150a2e 100%)"
     : "linear-gradient(160deg,#c7d9ff 0%,#deeaff 25%,#ffffff 55%,#e0ecff 80%,#ccd8f8 100%)";
 
-  const Card = ({ children }) => (
-    <div style={{ background:bgC, border:`1px solid ${bord}`, borderRadius:14, padding:"1.4rem 1.6rem", marginBottom:14, boxShadow:dark?"0 2px 12px #00000030":"0 2px 12px #1d4ed808" }}>{children}</div>
-  );
-  const SecTitle = ({ icon, children }) => (
-    <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:"1.1rem", paddingBottom:"0.7rem", borderBottom:`1px solid ${bord}` }}>
-      {icon && <span style={{ fontSize:14 }}>{icon}</span>}
-      <p style={{ fontSize:11, fontWeight:700, color:textS, textTransform:"uppercase", letterSpacing:"0.09em", margin:0 }}>{children}</p>
-    </div>
-  );
-  const Pill = ({ v }) => <span style={{ fontSize:11, padding:"3px 10px", borderRadius:20, border:`1px solid ${bord}`, background:bgS, color:textS, whiteSpace:"nowrap" }}>{v}</span>;
-  const Badge = ({ v, green }) => {
-    const isLecturer = v === "Lecturer";
-    const bg = isLecturer ? (dark?"#2d1b00":"#fff7ed") : green ? (dark?"#052e16":"#f0fdf4") : accLC;
-    const color = isLecturer ? (dark?"#fb923c":"#c2410c") : green ? (dark?"#4ade80":"#15803d") : accC;
-    const border = isLecturer ? (dark?"#92400e":"#fed7aa") : green ? (dark?"#166534":"#bbf7d0") : accBC;
-    return <span style={{ fontSize:10, padding:"2px 9px", borderRadius:20, fontWeight:600, background:bg, color, border:`1px solid ${border}` }}>{v}</span>;
-  };
-  const Hr = () => <div style={{ height:"1px", background:bord, margin:"1rem 0" }} />;
-
-  const EmailIcon  = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>;
-  const GithubIcon = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>;
-  const ScholarIcon= () => <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>;
-  const OrcidIcon  = () => <svg width="14" height="14" viewBox="0 0 256 256" fill="none"><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.5 10.1 10.1z" fill="white"/></svg>;
-
   const contactLinks = [
     { label:data.email,       href:`mailto:${data.email}`,   icon:<EmailIcon /> },
     { label:data.github,      href:`https://${data.github}`, icon:<GithubIcon /> },
@@ -109,7 +143,11 @@ export default function App() {
     { label:"ORCID",          href:data.orcid,               icon:<OrcidIcon /> },
   ];
 
-  const boldName = str => str.replace(/Min-Jong Bong[†‡]?/g, m => `<strong>${m}</strong>`);
+  const cardProps = { bg:bgC, bord, dark };
+  const stProps   = { textS, bord };
+  const pillProps = { bord, bgS, textS };
+  const badgeProps= { dark, accLC, accC, accBC };
+  const hrProps   = { bord };
 
   return (
     <div style={{ fontFamily:"var(--font-sans,system-ui,sans-serif)", background:bgS, color:text, minHeight:"100vh", fontSize:14 }}>
@@ -137,19 +175,16 @@ export default function App() {
 
       <div style={{ maxWidth:740, margin:"0 auto", padding:"1.75rem 1.5rem 5rem" }}>
 
-        {/* ── CV (Web) ── */}
+        {/* CV Web */}
         {tab === "CV (Web)" && <>
-
-          {/* 1. Research Interest */}
-          <Card>
-            <SecTitle icon="🔬">Research Interest</SecTitle>
+          <Card {...cardProps}>
+            <SecTitle icon="🔬" {...stProps}>Research Interest</SecTitle>
             <p style={{ fontSize:13, color:textS, lineHeight:1.9, margin:"0 0 14px" }}>{data.about}</p>
-            <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>{data.keywords.map(k => <Pill key={k} v={k} />)}</div>
+            <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>{data.keywords.map(k => <Pill key={k} v={k} {...pillProps} />)}</div>
           </Card>
 
-          {/* 2. Skills & Methods */}
-          <Card>
-            <SecTitle icon="⚗️">Skills & Methods</SecTitle>
+          <Card {...cardProps}>
+            <SecTitle icon="⚗️" {...stProps}>Skills & Methods</SecTitle>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))", gap:18 }}>
               {Object.entries(data.skills).map(([cat, items]) => (
                 <div key={cat}>
@@ -160,28 +195,26 @@ export default function App() {
             </div>
           </Card>
 
-          {/* 3. Research Projects */}
-          <Card>
-            <SecTitle icon="🧪">Research Projects</SecTitle>
+          <Card {...cardProps}>
+            <SecTitle icon="🧪" {...stProps}>Research Projects</SecTitle>
             {data.projects.map((p, i) => (
               <div key={i}>
-                {i > 0 && <Hr />}
+                {i > 0 && <Hr {...hrProps} />}
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:6 }}>
                   <div style={{ display:"flex", alignItems:"center", gap:8, flexWrap:"wrap" }}>
                     <span style={{ fontWeight:600, fontSize:13, color:text }}>{p.title}</span>
-                    <Badge v={p.status} green={p.status==="ongoing"} />
+                    <Badge v={p.status} green={p.status==="ongoing"} {...badgeProps} />
                   </div>
                   <span style={{ fontSize:11, color:textS, whiteSpace:"nowrap", marginLeft:10 }}>{p.period}</span>
                 </div>
                 <p style={{ fontSize:13, color:textS, lineHeight:1.8, margin:"0 0 10px" }}>{p.desc}</p>
-                <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>{p.tags.map(t => <Pill key={t} v={t} />)}</div>
+                <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>{p.tags.map(t => <Pill key={t} v={t} {...pillProps} />)}</div>
               </div>
             ))}
           </Card>
 
-          {/* 4. Education */}
-          <Card>
-            <SecTitle icon="🎓">Education</SecTitle>
+          <Card {...cardProps}>
+            <SecTitle icon="🎓" {...stProps}>Education</SecTitle>
             <div style={{ position:"relative", paddingLeft:20 }}>
               <div style={{ position:"absolute", left:3, top:6, bottom:6, width:"1px", background:dark?"#2a2a3a":"#e0e7ff" }} />
               {data.education.map((e, i) => (
@@ -195,12 +228,11 @@ export default function App() {
             </div>
           </Card>
 
-          {/* 5. Publications */}
-          <Card>
-            <SecTitle icon="📄">Publications</SecTitle>
+          <Card {...cardProps}>
+            <SecTitle icon="📄" {...stProps}>Publications</SecTitle>
             {data.publications.map((pub, i) => (
               <div key={i}>
-                {i > 0 && <Hr />}
+                {i > 0 && <Hr {...hrProps} />}
                 <div style={{ display:"flex", gap:10 }}>
                   <span style={{ fontSize:12, color:textS, minWidth:22, paddingTop:2, flexShrink:0, fontWeight:600 }}>[{i+1}]</span>
                   <div>
@@ -219,18 +251,17 @@ export default function App() {
             ))}
           </Card>
 
-          {/* 6. Teaching */}
-          <Card>
-            <SecTitle icon="📖">Teaching & Mentoring</SecTitle>
+          <Card {...cardProps}>
+            <SecTitle icon="📖" {...stProps}>Teaching & Mentoring</SecTitle>
             {data.teaching.map((t, i) => (
               <div key={i}>
-                {i > 0 && <Hr />}
+                {i > 0 && <Hr {...hrProps} />}
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
                   <div style={{ display:"flex", gap:9, alignItems:"flex-start" }}>
                     <div>
                       <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:2 }}>
                         <p style={{ fontSize:13, fontWeight:600, color:text, margin:0 }}>{t.activity}</p>
-                        <Badge v={t.type} green={t.type==="Mentoring"} />
+                        <Badge v={t.type} green={t.type==="Mentoring"} {...badgeProps} />
                       </div>
                       <p style={{ fontSize:12, color:textS, margin:0 }}>{t.desc}</p>
                     </div>
@@ -241,12 +272,11 @@ export default function App() {
             ))}
           </Card>
 
-          {/* 7. Awards */}
-          <Card>
-            <SecTitle icon="🏆">Honors & Awards</SecTitle>
+          <Card {...cardProps}>
+            <SecTitle icon="🏆" {...stProps}>Honors & Awards</SecTitle>
             {data.awards.map((a, i) => (
               <div key={i}>
-                {i > 0 && <Hr />}
+                {i > 0 && <Hr {...hrProps} />}
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:12 }}>
                   <div>
                     <p style={{ fontSize:13, fontWeight:600, color:text, margin:"0 0 2px" }}>{a.name}</p>
@@ -260,7 +290,7 @@ export default function App() {
           </Card>
         </>}
 
-        {/* ── CV (PDF) ── */}
+        {/* CV PDF */}
         {tab === "CV (PDF)" && (
           <div style={{ display:"flex", justifyContent:"center" }}>
             <div style={{ width:740, background:"#f0f0f0", padding:"32px 0", borderRadius:12, boxShadow:"0 4px 24px #00000018" }}>
@@ -273,12 +303,10 @@ export default function App() {
                   </p>
                   <p style={{ fontSize:9, color:"#aaa", margin:"6px 0 0" }}>Last updated: {data.updated}</p>
                 </div>
-
                 <PdfSection title="Research Interest">
                   <p style={{ margin:0, fontSize:10, color:"#333", lineHeight:1.75 }}>{data.about}</p>
                   <p style={{ margin:"6px 0 0", fontSize:10, color:"#333" }}><strong>Keywords: </strong>{data.keywords.join(", ")}</p>
                 </PdfSection>
-
                 <PdfSection title="Skills & Methods">
                   {Object.entries(data.skills).map(([cat, items]) => (
                     <div key={cat} style={{ marginBottom:4, display:"flex", gap:6 }}>
@@ -287,7 +315,6 @@ export default function App() {
                     </div>
                   ))}
                 </PdfSection>
-
                 <PdfSection title="Research Projects">
                   {data.projects.map((p,i) => (
                     <div key={i} style={{ marginBottom:i<data.projects.length-1?8:0 }}>
@@ -300,7 +327,6 @@ export default function App() {
                     </div>
                   ))}
                 </PdfSection>
-
                 <PdfSection title="Education">
                   {data.education.map((e,i) => (
                     <div key={i} style={{ marginBottom:i<data.education.length-1?8:0, display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
@@ -312,7 +338,6 @@ export default function App() {
                     </div>
                   ))}
                 </PdfSection>
-
                 <PdfSection title="Publications">
                   {data.publications.map((pub,i) => (
                     <div key={i} style={{ marginBottom:i<data.publications.length-1?8:0, display:"flex", gap:8 }}>
@@ -324,7 +349,6 @@ export default function App() {
                     </div>
                   ))}
                 </PdfSection>
-
                 <PdfSection title="Teaching & Mentoring">
                   {data.teaching.map((t,i) => (
                     <div key={i} style={{ marginBottom:i<data.teaching.length-1?6:0, display:"flex", justifyContent:"space-between" }}>
@@ -336,7 +360,6 @@ export default function App() {
                     </div>
                   ))}
                 </PdfSection>
-
                 <PdfSection title="Honors & Awards">
                   {data.awards.map((a,i) => (
                     <div key={i} style={{ marginBottom:i<data.awards.length-1?8:0 }}>
@@ -354,12 +377,12 @@ export default function App() {
           </div>
         )}
 
-        {/* ── Gallery ── */}
+        {/* Gallery */}
         {tab === "Gallery" && (
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(210px,1fr))", gap:14 }}>
             {data.gallery.map((g, i) => (
               <div key={i} style={{ background:bgC, border:`1px solid ${bord}`, borderRadius:14, overflow:"hidden", boxShadow:dark?"0 2px 12px #00000030":"0 2px 12px #1d4ed808" }}>
-                <div style={{ height:96, background: g.img ? "none" : `linear-gradient(135deg,hsl(${g.hue},70%,${dark?"20%":"75%"}) 0%,hsl(${g.hue},55%,${dark?"30%":"90%"}) 100%)`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:28, opacity:0.85, overflow:"hidden" }}>
+                <div style={{ height:160, background:g.img?"none":`linear-gradient(135deg,hsl(${g.hue},70%,${dark?"20%":"75%"}) 0%,hsl(${g.hue},55%,${dark?"30%":"90%"}) 100%)`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:28, overflow:"hidden" }}>
                   {g.img ? <img src={g.img} alt={g.title} style={{ width:"100%", height:"100%", objectFit:"cover" }} /> : "⬡"}
                 </div>
                 <div style={{ padding:"1rem 1.1rem" }}>
