@@ -49,8 +49,6 @@
     #link("https://" + data.github)[#data.github]
     #h(1em) | #h(1em)
     ORCID: #link("https://orcid.org/" + data.orcid)[#data.orcid]
-    #h(1em) | #h(1em)
-    #link(data.scholar)[Google Scholar]
   ]
   #v(0.15em)
   #text(size: 8pt, fill: rgb("#aaaaaa"))[Last updated: #data.updated]
