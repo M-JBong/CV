@@ -18,7 +18,7 @@ const data = {
   publications: [
     { title:"A secondary-sphere proton channel accelerating metal–hydride formation in Mn(I) catalysts for selective CO₂-to-formate conversion", authors:"Min-Jong Bong†, Wonjung Lee†, Daehan Lee, Hyunuk Kim, Junhyeok Seo, Ho-Jin Son", journal:"Chemical Science", year:"2026", doi:"10.1039/D5SC09412G", note:"co-first author †", highlight:true },
     { title:"Efficient and Durable Photochemical CO₂ Reduction by TiO₂-Immobilized Metal Porphyrin Catalysts", authors:"Hyeongu Kang, Daehan Lee, Sangheon Jeong, Seunghwan Cha, Min-Jong Bong, Myung Jae Lee, Won-Jo Jung, Ho-Jin Son", journal:"ChemSusChem", year:"2026", vol:"19, e202501889", doi:"10.1002/cssc.202501889", note:"", highlight:false },
-    { title:"Organic phosphorescence in Pt(II)-complexes linked to organic chromophores for blue-emitting organic light-emitting diodes", authors:"Seong Woon Jeong‡, Hyung Joo Lee‡, Bum June Park, Min-Jong Bong, Daehan Lee, Taekyung Kim, Chul Hoon Kim, Ho-Jin Son", journal:"Communications Chemistry", year:"2025", vol:"8, 140", doi:"10.1038/s42004-025-01533-y", note:"", highlight:false },
+    { title:"Organic phosphorescence in Pt(II)-complexes linked to organic chromophores for blue-emitting organic light-emitting diodes", authors:"Seong Woon Jeong‡, Hyung Joo Lee‡, Bum June Park, Min-Jong Bong, Daehan Lee, Taekyung Kim, Chul Hoon Kim, Ho-Jin Son", journal:"Communications Chemistry", publisher:"Nature Portfolio", year:"2025", vol:"8, 140", doi:"10.1038/s42004-025-01533-y", note:"", highlight:false },
   ],
   projects: [
     { title:"Tether Length Modulation of Secondary Coordination Layer", period:"2024 – Present", status:"ongoing", desc:"Systematic variation of –OH/–OMe pendant length at 6,6′-bipy positions of Mn(I) complexes. Best performer Mn-DiMeOMe: TON 368, formate selectivity 97.8%.", tags:["Photocatalysis","CV","Operando FTIR","DFT","XRD"] },
@@ -231,7 +231,7 @@ export default function App() {
                     <p style={{ fontSize:13, fontWeight:600, color:text, margin:"0 0 4px", lineHeight:1.65 }}>{pub.title}</p>
                     <p style={{ fontSize:12, color:textS, margin:"0 0 3px", lineHeight:1.6 }} dangerouslySetInnerHTML={{ __html: boldName(pub.authors) }} />
                     <p style={{ fontSize:12, color:textS, margin:"0 0 8px" }}>
-                      <em style={{ color:dark?"#a5b4fc":ACC }}>{pub.journal}</em>{pub.vol?`, ${pub.vol}`:""}{" · "}{pub.year}
+                      <em style={{ color:dark?"#a5b4fc":ACC }}>{pub.journal}</em>{pub.publisher && <em style={{ color:textS, fontSize:11 }}> ({pub.publisher})</em>}{pub.vol?`, ${pub.vol}`:""}{" · "}{pub.year}
                     </p>
                     <div style={{ display:"flex", gap:8, flexWrap:"wrap", alignItems:"center" }}>
                       {pub.doi && <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noreferrer" style={{ fontSize:11, color:accC, textDecoration:"none", borderBottom:`1px dashed ${accBC}` }}>DOI: {pub.doi}</a>}
