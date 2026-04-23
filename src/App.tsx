@@ -177,7 +177,7 @@ export default function App() {
         {tab === "CV (Web)" && <>
           <Card {...cardProps}>
             <SecTitle icon="🔬" {...stProps}>Research Interest</SecTitle>
-            <p style={{ fontSize:13, color:textS, lineHeight:1.9, margin:"0 0 14px" }}>{data.about}</p>
+            <p style={{ fontSize:13, color:textS, lineHeight:1.9, margin:"0 0 14px", textAlign:"justify" }}>{data.about}</p>
             <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>{data.keywords.map(k => <Pill key={k} v={k} {...pillProps} />)}</div>
           </Card>
 
