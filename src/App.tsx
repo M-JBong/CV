@@ -46,7 +46,7 @@ const data = {
     { name:"Excellent Research Report Award", institution:"CURT Research Program, Korea University", year:"2021", detail:"" },
   ],
   gallery:[
-    { title:"CO₂-to-Formate Conversion", tag:"Chem. Sci. 2026", desc:"TOC graphic for proton relay engineering in Mn(I) catalysts", hue:"210", img:"https://m-jbong.github.io/CV/images/TOC_graphic.png" },
+    { title:"CO₂-to-Formate Conversion", tag:"Chem. Sci. 2026", desc:"TOC graphic for proton relay engineering in Mn(I) catalysts", hue:"210", img:"/CV/TOC_graphic.png" },
     { title:"Tether Length Study", tag:"Ongoing", desc:"SCL modulation in Mn(I) bpy complexes", hue:"210", img:"" },
     { title:"CURT Award", tag:"2021", desc:"Excellent Research Report Award", hue:"45", img:"" },
   ],
