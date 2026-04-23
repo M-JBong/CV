@@ -16,8 +16,8 @@ const data = {
   about: `Ph.D. candidate in Inorganic Chemistry at Korea University (expected February 2027), specializing in the design of single-molecule Mn(I) catalysts for selective CO₂ reduction. Research centers on secondary coordination sphere engineering of well-defined molecular complexes — inspired by formate dehydrogenase enzymes — integrating experimental (operando FTIR, CV, XRD) and computational (DFT; ORCA) approaches with Python-based automation of computational workflows. Key results include a TON of ~300 with >94% formate selectivity, published in Chemical Science (2026, co-first author).`,
   keywords: ["Organometallic Synthesis","CO₂ Reduction","Photocatalysis","Secondary Coordination Sphere","Operando FTIR","DFT"],
   publications: [
-    { title:"A secondary-sphere proton channel accelerating metal–hydride formation in Mn(I) catalysts for selective CO₂-to-formate conversion", authors:"Min-Jong Bong†, Wonjung Lee†, Daehan Lee, Hyunuk Kim, Junhyeok Seo, Ho-Jin Son", journal:"Chemical Science", year:"2026", doi:"10.1039/D5SC09412G", note:"co-first author †", highlight:true },
-    { title:"Efficient and Durable Photochemical CO₂ Reduction by TiO₂-Immobilized Metal Porphyrin Catalysts", authors:"Hyeongu Kang, Daehan Lee, Sangheon Jeong, Seunghwan Cha, Min-Jong Bong, Myung Jae Lee, Won-Jo Jung, Ho-Jin Son", journal:"ChemSusChem", year:"2026", vol:"19, e202501889", doi:"10.1002/cssc.202501889", note:"", highlight:false },
+    { title:"A secondary-sphere proton channel accelerating metal–hydride formation in Mn(I) catalysts for selective CO₂-to-formate conversion", authors:"Min-Jong Bong†, Wonjung Lee†, Daehan Lee, Hyunuk Kim, Junhyeok Seo, Ho-Jin Son", journal:"Chemical Science", publisher:"Royal Society of Chemistry", year:"2026", doi:"10.1039/D5SC09412G", note:"co-first author †", highlight:true },
+    { title:"Efficient and Durable Photochemical CO₂ Reduction by TiO₂-Immobilized Metal Porphyrin Catalysts", authors:"Hyeongu Kang, Daehan Lee, Sangheon Jeong, Seunghwan Cha, Min-Jong Bong, Myung Jae Lee, Won-Jo Jung, Ho-Jin Son", journal:"ChemSusChem", publisher:"Wiley-VCH / Chemistry Europe", year:"2026", vol:"19, e202501889", doi:"10.1002/cssc.202501889", note:"", highlight:false },
     { title:"Organic phosphorescence in Pt(II)-complexes linked to organic chromophores for blue-emitting organic light-emitting diodes", authors:"Seong Woon Jeong‡, Hyung Joo Lee‡, Bum June Park, Min-Jong Bong, Daehan Lee, Taekyung Kim, Chul Hoon Kim, Ho-Jin Son", journal:"Communications Chemistry", publisher:"Nature Portfolio", year:"2025", vol:"8, 140", doi:"10.1038/s42004-025-01533-y", note:"", highlight:false },
   ],
   projects: [
@@ -231,7 +231,7 @@ export default function App() {
                     <p style={{ fontSize:13, fontWeight:600, color:text, margin:"0 0 4px", lineHeight:1.65 }}>{pub.title}</p>
                     <p style={{ fontSize:12, color:textS, margin:"0 0 3px", lineHeight:1.6 }} dangerouslySetInnerHTML={{ __html: boldName(pub.authors) }} />
                     <p style={{ fontSize:12, color:textS, margin:"0 0 8px" }}>
-                      <em style={{ color:dark?"#a5b4fc":ACC }}>{pub.journal}</em>{pub.publisher && <em style={{ color:textS, fontSize:11 }}> ({pub.publisher})</em>}{pub.vol?`, ${pub.vol}`:""}{" · "}{pub.year}
+                      <em style={{ color:dark?"#a5b4fc":ACC }}>{pub.journal}</em>{pub.vol?`, ${pub.vol}`:""}{" · "}{pub.year}{pub.publisher && <em style={{ color:dark?"#4b5563":"#9ca3af", fontSize:11 }}> · {pub.publisher}</em>}
                     </p>
                     <div style={{ display:"flex", gap:8, flexWrap:"wrap", alignItems:"center" }}>
                       {pub.doi && <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noreferrer" style={{ fontSize:11, color:accC, textDecoration:"none", borderBottom:`1px dashed ${accBC}` }}>DOI: {pub.doi}</a>}

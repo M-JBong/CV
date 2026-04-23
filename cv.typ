@@ -88,7 +88,7 @@
       #text(weight: "bold")[#pub.title] \
       #text(size: 9.5pt)[#bold-me(pub.authors)] \
       #text(size: 9.5pt)[
-        #text(style: "italic", fill: link-color)[#pub.journal]#if "publisher" in pub and pub.publisher != none [ #text(style: "italic", fill: rgb("#aaaaaa"))[(#pub.publisher)]]#if "vol" in pub and pub.vol != none [, #pub.vol] · #pub.year
+        #text(style: "italic", fill: link-color)[#pub.journal]#if "vol" in pub and pub.vol != none [, #pub.vol] · #pub.year#if "publisher" in pub and pub.publisher != none [ · #text(style: "italic", fill: rgb("#aaaaaa"))[#pub.publisher]]
         #if "doi" in pub and pub.doi != none [ · DOI: #link("https://doi.org/" + str(pub.doi))[#str(pub.doi)]]
         #if "note" in pub and pub.note != none and pub.note != "" [
           #h(0.4em)
