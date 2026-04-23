@@ -282,23 +282,6 @@ export default function App() {
           </Card>
         </>}
 
-        {/* CV PDF */}
-        {tab === "CV (PDF)" && (
-          <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:12 }}>
-            <div style={{ display:"flex", gap:10 }}>
-              <a href="https://m-jbong.github.io/CV/data/CV.pdf" target="_blank" rel="noreferrer"
-                style={{ fontSize:12, color:accC, textDecoration:"none", border:`1px solid ${accBC}`, borderRadius:8, padding:"5px 16px", background:accLC }}>
-                Download PDF
-              </a>
-            </div>
-            <iframe
-              src="https://m-jbong.github.io/CV/data/CV.pdf"
-              style={{ width:"100%", height:"80vh", border:"none", borderRadius:12, boxShadow:dark?"0 4px 24px #00000040":"0 4px 24px #00000018" }}
-              title="CV PDF"
-            />
-          </div>
-        )}
-
         {/* Gallery */}
         {tab === "Gallery" && (
           <div style={{ display:"grid", gridTemplateColumns:"1fr", gap:14 }}>
@@ -319,6 +302,21 @@ export default function App() {
           </div>
         )}
       </div>
+
+      {/* CV PDF - full width outside 740px container */}
+      {tab === "CV (PDF)" && (
+        <div style={{ padding:"1.75rem 1.5rem 5rem", display:"flex", flexDirection:"column", alignItems:"center", gap:12 }}>
+          <a href="https://m-jbong.github.io/CV/data/CV.pdf" target="_blank" rel="noreferrer"
+            style={{ fontSize:12, color:accC, textDecoration:"none", border:`1px solid ${accBC}`, borderRadius:8, padding:"5px 16px", background:accLC }}>
+            Download PDF
+          </a>
+          <iframe
+            src="https://m-jbong.github.io/CV/data/CV.pdf"
+            style={{ width:"100%", height:"85vh", border:"none", borderRadius:12, boxShadow:dark?"0 4px 24px #00000040":"0 4px 24px #00000018" }}
+            title="CV PDF"
+          />
+        </div>
+      )}
 
       <div style={{ textAlign:"center", borderTop:`1px solid ${bord}`, padding:"1.25rem 0 2rem", background:bgC }}>
         <p style={{ fontSize:11, color:textS, margin:0 }}>Min-Jong Bong · Korea University · {new Date().getFullYear()}</p>
