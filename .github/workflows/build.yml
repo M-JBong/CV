@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
@@ -12,14 +12,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
       - name: Install dependencies
         run: npm install
-      - name: Build project
+
+      - name: Build React app
         run: npm run build
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Compile CV PDF
+        run: typst compile cv.typ CV.pdf
+
+      - name: Move PDF into dist
+        run: mkdir -p dist/data && mv CV.pdf dist/data/CV.pdf
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
