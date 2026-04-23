@@ -46,7 +46,7 @@ const data = {
     { name:"Excellent Research Report Award", institution:"CURT Research Program, Korea University", year:"2021", detail:"" },
   ],
   gallery:[
-    { title:"CO₂-to-Formate Conversion", tag:"Chem. Sci. 2026", desc:"TOC graphic for proton relay engineering in Mn(I) catalysts", hue:"210", img:"/CV/TOC_graphic.png" },
+    { title:"A secondary-sphere proton channel accelerating metal–hydride formation in Mn(I) catalysts for selective CO₂-to-formate conversion", tag:"Chem. Sci. 2026", desc:"TOC graphic for proton relay engineering in Mn(I) catalysts", hue:"210", img:"/CV/TOC_graphic.png" },
   ],
 };
 
