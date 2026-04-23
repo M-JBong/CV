@@ -31,7 +31,7 @@ const data = {
   ],
   skills: {
     "Technical":["Organic & organometallic synthesis","Glovebox & Schlenk techniques","Air-sensitive compound handling","Photocatalysis","3D Graphic Design (Adobe Dimension)"],
-    "Instrumental":["Operando FTIR","Cyclic Voltammetry","UV-Vis Spectroscopy","Quantum Yield Measurement","Single-crystal XRD","Structure refinement (SHELXTL/SHELXL)","NMR","ESI-MS","GC-TCD, HPLC"],
+    "Instrumental":["Operando FTIR","Cyclic Voltammetry","UV-Vis Spectroscopy","Quantum Yield Measurement","Single-crystal XRD","Structure refinement (SHELXTL/SHELXL)","NMR","ESI-MS","GC-MS","GC-TCD, HPLC"],
     "Computational":["DFT (ORCA, Gaussian)","CPCM solvation","Reaction pathway mapping","Python (computational data automation & visualization)","AI-assisted computational workflow (Claude Code)"],
   },
   teaching: [
