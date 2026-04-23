@@ -307,7 +307,7 @@ export default function App() {
       {tab === "CV (PDF)" && (
         <div style={{ padding:"0 1.5rem 5rem" }}>
           <iframe
-            src="https://m-jbong.github.io/CV/data/CV.pdf"
+            src={`https://m-jbong.github.io/CV/data/CV.pdf?v=${data.updated}`}
             style={{ width:"100%", height:"85vh", border:"none", borderRadius:12, boxShadow:dark?"0 4px 24px #00000040":"0 4px 24px #00000018" }}
             title="CV PDF"
           />
