@@ -25,13 +25,18 @@ jobs:
         run: npm run build
 
       - name: Install Typst
-        uses: typst-community/setup-typst@v4
+        run: |
+          curl -fsSL https://typst.community/typst-install/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Compile CV PDF
-        run: typst compile cv.typ CV.pdf
+        run: |
+          typst --version
+          typst compile cv.typ CV.pdf
+          ls -lh CV.pdf
 
       - name: Move PDF into dist
-        run: mkdir -p dist/data && mv CV.pdf dist/data/CV.pdf
+        run: mkdir -p dist/data && mv CV.pdf dist/data/CV.pdf && ls -lh dist/data/
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
