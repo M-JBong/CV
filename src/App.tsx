@@ -13,7 +13,7 @@ const data = {
   github: "github.com/M-JBong",
   scholar: "https://scholar.google.com/citations?hl=ko&user=5ujZumkAAAAJ",
   orcid: "https://orcid.org/0009-0000-7738-1321",
-  about: `Ph.D. candidate at Korea University specializing in inorganic and organometallic chemistry. Research focuses on Mn(I)-based molecular catalysts for selective CO₂ reduction, integrating synthetic (glovebox & Schlenk), experimental (photocatalysis, operando FTIR, CV, XRD), and computational (DFT) approaches.`,
+  about: `Ph.D. candidate in Inorganic Chemistry at Korea University (expected February 2027), specializing in the design of single-molecule Mn(I) catalysts for selective CO₂ reduction. Research centers on secondary coordination sphere engineering of well-defined molecular complexes — inspired by formate dehydrogenase enzymes — integrating experimental (operando FTIR, CV, XRD) and computational (DFT; ORCA) approaches with Python-based automation of computational workflows. Key results include a TON of ~300 with >94% formate selectivity, published in Chemical Science (2026, co-first author).`,
   keywords: ["Organometallic Synthesis","CO₂ Reduction","Photocatalysis","Secondary Coordination Sphere","Operando FTIR","DFT"],
   publications: [
     { title:"A secondary-sphere proton channel accelerating metal–hydride formation in Mn(I) catalysts for selective CO₂-to-formate conversion", authors:"Min-Jong Bong†, Wonjung Lee†, Daehan Lee, Hyunuk Kim, Junhyeok Seo, Ho-Jin Son", journal:"Chemical Science", year:"2026", doi:"10.1039/D5SC09412G", note:"co-first author †", highlight:true },
