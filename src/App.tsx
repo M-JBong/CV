@@ -77,12 +77,6 @@ const OrcidIcon = () => (
   </svg>
 );
 
-const PdfSection = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <div style={{ marginBottom:16 }}>
-    <p style={{ fontSize:11, fontWeight:700, color:"#1a2744", textTransform:"uppercase", letterSpacing:"0.08em", margin:"0 0 5px", paddingBottom:3, borderBottom:"1px solid #c8d0e8", fontFamily:"Georgia,serif" }}>{title}</p>
-    {children}
-  </div>
-);
 
 const boldName = (str: string) => str.replace(/Min-Jong Bong[†‡]?/g, (m: string) => `<strong>${m}</strong>`);
 
@@ -290,88 +284,18 @@ export default function App() {
 
         {/* CV PDF */}
         {tab === "CV (PDF)" && (
-          <div style={{ display:"flex", justifyContent:"center" }}>
-            <div style={{ width:740, background:"#f0f0f0", padding:"32px 0", borderRadius:12, boxShadow:"0 4px 24px #00000018" }}>
-              <div style={{ width:595, margin:"0 auto", background:"#fff", boxShadow:"0 2px 16px #00000020", padding:"56px 60px 64px", fontFamily:"Georgia,serif", color:"#111", fontSize:10.5, lineHeight:1.6 }}>
-                <div style={{ textAlign:"center", marginBottom:18, borderBottom:"2px solid #1a2744", paddingBottom:14 }}>
-                  <h1 style={{ fontSize:26, fontWeight:700, margin:"0 0 4px", fontFamily:"Georgia,serif", color:"#1a2744" }}>MIN-JONG BONG</h1>
-                  <p style={{ fontSize:10, color:"#555", margin:"0 0 6px" }}>{data.title} · {data.affiliation}</p>
-                  <p style={{ fontSize:9.5, color:"#777", margin:0, display:"flex", justifyContent:"center", gap:16, flexWrap:"wrap" }}>
-                    <span>{data.email}</span><span>|</span><span>{data.github}</span><span>|</span><span>ORCID: 0009-0000-7738-1321</span>
-                  </p>
-                  <p style={{ fontSize:9, color:"#aaa", margin:"6px 0 0" }}>Last updated: {data.updated}</p>
-                </div>
-                <PdfSection title="Research Interest">
-                  <p style={{ margin:0, fontSize:10, color:"#333", lineHeight:1.75 }}>{data.about}</p>
-                  <p style={{ margin:"6px 0 0", fontSize:10, color:"#333" }}><strong>Keywords: </strong>{data.keywords.join(", ")}</p>
-                </PdfSection>
-                <PdfSection title="Skills & Methods">
-                  {Object.entries(data.skills).map(([cat, items]) => (
-                    <div key={cat} style={{ marginBottom:4, display:"flex", gap:6 }}>
-                      <p style={{ margin:0, fontWeight:700, fontSize:10, color:"#111", minWidth:90, flexShrink:0 }}>{cat}:</p>
-                      <p style={{ margin:0, fontSize:10, color:"#444" }}>{items.join(", ")}</p>
-                    </div>
-                  ))}
-                </PdfSection>
-                <PdfSection title="Research Projects">
-                  {data.projects.map((p,i) => (
-                    <div key={i} style={{ marginBottom:i<data.projects.length-1?8:0 }}>
-                      <div style={{ display:"flex", justifyContent:"space-between" }}>
-                        <p style={{ margin:0, fontWeight:700, fontSize:10, color:"#111" }}>{p.title}</p>
-                        <p style={{ margin:0, fontSize:9.5, color:"#777", whiteSpace:"nowrap", marginLeft:12 }}>{p.period}</p>
-                      </div>
-                      <p style={{ margin:"2px 0", fontSize:10, color:"#444", lineHeight:1.65 }}>{p.desc}</p>
-                      <p style={{ margin:0, fontSize:9.5, color:"#2e4fa3" }}>{p.tags.join(" · ")}</p>
-                    </div>
-                  ))}
-                </PdfSection>
-                <PdfSection title="Education">
-                  {data.education.map((e,i) => (
-                    <div key={i} style={{ marginBottom:i<data.education.length-1?8:0, display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
-                      <div>
-                        <p style={{ margin:0, fontWeight:700, fontSize:10, color:"#111" }}>{e.degree}</p>
-                        <p style={{ margin:0, fontSize:10, color:"#2e4fa3" }}>{e.institution}{e.dept?` · ${e.dept}`:""}{e.advisor?` · Advisor: ${e.advisor}`:""}</p>
-                      </div>
-                      <p style={{ margin:0, fontSize:9.5, color:"#777", whiteSpace:"nowrap", marginLeft:12 }}>{e.period}</p>
-                    </div>
-                  ))}
-                </PdfSection>
-                <PdfSection title="Publications">
-                  {data.publications.map((pub,i) => (
-                    <div key={i} style={{ marginBottom:i<data.publications.length-1?8:0, display:"flex", gap:8 }}>
-                      <span style={{ fontSize:10, color:"#888", minWidth:18 }}>[{i+1}]</span>
-                      <div>
-                        <p style={{ margin:"0 0 1px", fontSize:10, color:"#111", lineHeight:1.6 }}>{pub.title}</p>
-                        <p style={{ margin:0, fontSize:9.5, color:"#555" }} dangerouslySetInnerHTML={{ __html: boldName(pub.authors) + ` · <em>${pub.journal}</em>${pub.vol?`, ${pub.vol}`:""} (${pub.year})${pub.doi?` · DOI: ${pub.doi}`:""}` }} />
-                      </div>
-                    </div>
-                  ))}
-                </PdfSection>
-                <PdfSection title="Teaching & Mentoring">
-                  {data.teaching.map((t,i) => (
-                    <div key={i} style={{ marginBottom:i<data.teaching.length-1?6:0, display:"flex", justifyContent:"space-between" }}>
-                      <div>
-                        <p style={{ margin:0, fontWeight:700, fontSize:10, color:"#111" }}>{t.activity} <span style={{ fontWeight:400, color:"#888" }}>({t.type})</span></p>
-                        <p style={{ margin:0, fontSize:9.5, color:"#555" }}>{t.desc}</p>
-                      </div>
-                      <p style={{ margin:0, fontSize:9.5, color:"#777", whiteSpace:"nowrap", marginLeft:12 }}>{t.period}</p>
-                    </div>
-                  ))}
-                </PdfSection>
-                <PdfSection title="Honors & Awards">
-                  {data.awards.map((a,i) => (
-                    <div key={i} style={{ marginBottom:i<data.awards.length-1?8:0 }}>
-                      <div style={{ display:"flex", justifyContent:"space-between" }}>
-                        <p style={{ margin:0, fontWeight:700, fontSize:10, color:"#111" }}>{a.name}</p>
-                        <p style={{ margin:0, fontSize:10, fontWeight:700, color:"#2e4fa3", whiteSpace:"nowrap", marginLeft:12 }}>{a.year}</p>
-                      </div>
-                      <p style={{ margin:0, fontSize:9.5, color:"#555" }}>{a.institution}</p>
-                      {a.detail && <p style={{ margin:"2px 0 0", fontSize:9.5, color:"#777", fontStyle:"italic", lineHeight:1.6 }}>{a.detail}</p>}
-                    </div>
-                  ))}
-                </PdfSection>
-              </div>
+          <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:12 }}>
+            <div style={{ display:"flex", gap:10 }}>
+              <a href="https://m-jbong.github.io/CV/data/CV.pdf" target="_blank" rel="noreferrer"
+                style={{ fontSize:12, color:accC, textDecoration:"none", border:`1px solid ${accBC}`, borderRadius:8, padding:"5px 16px", background:accLC }}>
+                Download PDF
+              </a>
             </div>
+            <iframe
+              src="https://m-jbong.github.io/CV/data/CV.pdf"
+              style={{ width:"100%", height:"80vh", border:"none", borderRadius:12, boxShadow:dark?"0 4px 24px #00000040":"0 4px 24px #00000018" }}
+              title="CV PDF"
+            />
           </div>
         )}
 
