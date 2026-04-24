@@ -208,7 +208,7 @@ export default function App() {
           <Card {...cardProps}>
             <SecTitle icon="🎓" {...stProps}>Education</SecTitle>
             <div style={{ position:"relative", paddingLeft:20 }}>
-              <div style={{ position:"absolute", left:3, top:6, bottom:6, width:"1px", background:dark?"#2a2a3a":"#e0e7ff" }} />
+              <div style={{ position:"absolute", left:7, top:6, bottom:6, width:"1px", background:dark?"#2a2a3a":"#e0e7ff" }} />
               {data.education.map((e, i) => (
                 <div key={i} style={{ position:"relative", marginBottom:i<data.education.length-1?18:0 }}>
                   <div style={{ position:"absolute", left:-17, top:4, width:8, height:8, borderRadius:"50%", background:i===0?accC:bord, boxShadow:i===0?`0 0 0 3px ${accLC}`:"none" }} />
