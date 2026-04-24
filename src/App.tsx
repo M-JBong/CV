@@ -43,7 +43,7 @@ const data = {
   ],
   awards:[
     { name:"Excellence in Poster Presentation Award", institution:"Inorganic Chemistry Division, Korean Chemical Society (대한화학회 무기분과회)", year:"2025", detail:"Second Coordination Sphere Engineering for Efficient and Selective CO₂-to-Formate Conversion of Mn(I) Bipyridyl Complexes: Steric and Brønsted Acidity/Basicity Influence of Alcohol and Alkyloxy Pendants and Its Mechanistic Investigation" },
-    { name:"Excellent Research Report Award", institution:"CURT Research Program, Korea University", year:"2021", detail:"" },
+    { name:"Excellent Research Award", institution:"CURT Research Program, Korea University", year:"2021", detail:"" },
   ],
   gallery:[
     { title:"A secondary-sphere proton channel accelerating metal–hydride formation in Mn(I) catalysts for selective CO₂-to-formate conversion", tag:"Chem. Sci. 2026", desc:"TOC graphic for proton relay engineering in Mn(I) catalysts", hue:"210", img:"/CV/TOC_graphic.png", pinned:true },
