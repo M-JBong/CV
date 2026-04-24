@@ -8,7 +8,7 @@ const data = {
   name: "Min-Jong Bong",
   title: "Ph.D. Candidate in Advanced Inorganic Materials Chemistry",
   affiliation: "Korea University · Advisor: Prof. Ho-Jin Son",
-  updated: "2026-04-24",
+  updated: "2026-04-24b",
   email: "bong1464@korea.ac.kr",
   github: "github.com/M-JBong",
   scholar: "https://scholar.google.com/citations?hl=ko&user=5ujZumkAAAAJ",
