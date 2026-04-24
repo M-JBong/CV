@@ -6,9 +6,9 @@ const ACC_B = "#bfdbfe";
 
 const data = {
   name: "Min-Jong Bong",
-  title: "Ph.D. Candidate in Advanced Inorganic Materials Chemistry",
+  title: "Ph.D. Candidate in Inorganic Chemistry",
   affiliation: "Korea University · Advisor: Prof. Ho-Jin Son",
-  updated: "2026-04-24b",
+  updated: "2026-04-24c",
   email: "bong1464@korea.ac.kr",
   github: "github.com/M-JBong",
   scholar: "https://scholar.google.com/citations?hl=ko&user=5ujZumkAAAAJ",
@@ -25,8 +25,8 @@ const data = {
     { title:"Proton Relay Engineering in Mn(I) Complexes", period:"2022 – 2025", status:"published", desc:"Ethylene-bridged pendants mimic formate dehydrogenase. Mn-bpydiOMe: TON ~300, formate selectivity >94%. Published in Chem. Sci. 2026.", tags:["CO₂ Reduction","Operando FTIR","DFT","Mechanistic Study"] },
   ],
   education: [
-    { degree:"Ph.D. candidate, Advanced Inorganic Materials Chemistry", institution:"Korea University", dept:"Department of Advanced Materials Chemistry", period:"Mar 2024 – Present", advisor:"Prof. Ho-Jin Son" },
-    { degree:"M.S., Advanced Inorganic Materials Chemistry", institution:"Korea University", dept:"Department of Advanced Materials Chemistry", period:"Mar 2022 – Feb 2024", advisor:"Prof. Ho-Jin Son" },
+    { degree:"Ph.D. candidate, Inorganic Chemistry", institution:"Korea University", dept:"Department of Advanced Materials Chemistry", period:"Mar 2024 – Present", advisor:"Prof. Ho-Jin Son" },
+    { degree:"M.S., Inorganic Chemistry", institution:"Korea University", dept:"Department of Advanced Materials Chemistry", period:"Mar 2022 – Feb 2024", advisor:"Prof. Ho-Jin Son" },
     { degree:"B.S., Advanced Materials Chemistry", institution:"Korea University (Sejong)", dept:"", period:"Mar 2018 – Feb 2022", advisor:"" },
   ],
   skills: {
