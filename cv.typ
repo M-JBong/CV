@@ -1,4 +1,5 @@
 // ── CV template for Min-Jong Bong ──
+#import "@preview/fontawesome:0.5.0": *
 #let data = yaml("cv.yml")
 
 #let accent = rgb("#1a2744")
@@ -42,11 +43,13 @@
   ]
   #v(0.3em)
   #text(size: 9pt, fill: subtle)[
-    #link("mailto:" + data.email)[#data.email]
-    #h(1em) | #h(1em)
-    #link("https://" + data.github)[#data.github]
-    #h(1em) | #h(1em)
-    ORCID: #link("https://orcid.org/" + data.orcid)[#data.orcid]
+    #fa-icon("envelope", size: 9pt, fill: subtle) #link("mailto:" + data.email)[#data.email]
+    #h(0.8em) | #h(0.8em)
+    #fa-icon("github", size: 9pt, fill: subtle) #link("https://" + data.github)[#data.github]
+    #h(0.8em) | #h(0.8em)
+    #fa-icon("graduation-cap", size: 9pt, fill: subtle) #link(data.scholar)[Google Scholar]
+    #h(0.8em) | #h(0.8em)
+    #box(fill: rgb("#A6CE39"), radius: 2pt, inset: (x: 3pt, y: 1pt))[#text(size: 7pt, fill: white, weight: "bold")[iD]] #link("https://orcid.org/" + data.orcid)[#data.orcid]
   ]
   #v(0.15em)
   #text(size: 8pt, fill: rgb("#aaaaaa"))[Last updated: #data.updated]
