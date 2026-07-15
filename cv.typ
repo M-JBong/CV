@@ -49,7 +49,7 @@
     #box(height: 0.85em, baseline: 15%)[#image("icons/orcid.svg", height: 0.85em)] #link("https://orcid.org/" + data.orcid)[#data.orcid]
   ]
   #v(0.15em)
-  #text(size: 8pt, fill: rgb("#aaaaaa"))[Last updated: #data.updated]
+  #text(size: 8pt, fill: rgb("#aaaaaa"))[Last updated: #data.updated_date]
 ]
 
 // ── Research Interest ──
