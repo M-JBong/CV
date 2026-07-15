@@ -8,7 +8,7 @@ const data = {
   name: "Min-Jong Bong",
   title: "Ph.D. Candidate in Inorganic Chemistry",
   affiliation: "Korea University · Advisor: Prof. Ho-Jin Son",
-  updated: "2026-07-15",
+  updated: "2026-07-15 10:57 KST",
   email: "bong1464@korea.ac.kr",
   github: "github.com/M-JBong",
   scholar: "https://scholar.google.com/citations?hl=ko&user=5ujZumkAAAAJ",
@@ -310,7 +310,7 @@ export default function App() {
       {tab === "CV (PDF)" && (
         <div style={{ padding:"0 1.5rem 5rem" }}>
           <iframe
-            src={`https://m-jbong.github.io/CV/data/CV.pdf?v=${data.updated}`}
+            src={`https://m-jbong.github.io/CV/data/CV.pdf?v=${encodeURIComponent(data.updated)}`}
             style={{ width:"100%", height:"85vh", border:"none", borderRadius:12, boxShadow:dark?"0 4px 24px #00000040":"0 4px 24px #00000018" }}
             title="CV PDF"
           />
