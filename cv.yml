@@ -42,6 +42,12 @@ education:
     period: "Mar 2018 – Feb 2022"
 
 publications:
+  - title: "Unveiling Key Factors Governing the Catalytic Performance of Half-Metallocene Complexes for Photochemical CO₂ Reduction and Hydrogen Production: Relativistic Effects and Charge Delocalization"
+    authors: "Daehan Lee†, Min-Jong Bong†, Seunghwan Cha, Sangheon Jeong, Jung-Min Ji, Won-Jo Jung, Nady A. Fathy, Ho-Jin Son"
+    journal: Inorganic Chemistry Frontiers
+    publisher: Royal Society of Chemistry
+    year: "Under revision"
+    note: "co-first author †"
   - title: "A secondary-sphere proton channel accelerating metal–hydride formation in Mn(I) catalysts for selective CO₂-to-formate conversion"
     authors: "Min-Jong Bong†, Wonjung Lee†, Daehan Lee, Hyunuk Kim, Junhyeok Seo, Ho-Jin Son"
     journal: Chemical Science
