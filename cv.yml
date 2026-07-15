@@ -16,7 +16,7 @@ about: >
   complexes — inspired by formate dehydrogenase enzymes — integrating experimental
   (operando FTIR, CV, XRD) and computational (DFT; ORCA) approaches with Python-based
   automation of computational workflows. Key results include a TON of ~300 with >94%
-  formate selectivity, published in Chemical Science (2026, co-first author).
+  formate selectivity, published in Chemical Science (2026, first author).
 
 keywords:
   - Organometallic Synthesis
@@ -48,7 +48,7 @@ publications:
     publisher: Royal Society of Chemistry
     year: "2026"
     doi: 10.1039/D5SC09412G
-    note: "co-first author †"
+    note: "first author"
   - title: "Efficient and Durable Photochemical CO₂ Reduction by TiO₂-Immobilized Metal Porphyrin Catalysts"
     authors: "Hyeongu Kang, Daehan Lee, Sangheon Jeong, Seunghwan Cha, Min-Jong Bong, Myung Jae Lee, Won-Jo Jung, Ho-Jin Son"
     journal: ChemSusChem
