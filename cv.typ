@@ -161,24 +161,26 @@
 // ── Honors & Awards ──
 #section("Honors & Awards")
 #for a in data.awards [
-  #grid(
-    columns: (1fr, auto),
-    gutter: 0.5em,
-    [
-      #text(weight: "bold")[#a.name] \
-      #text(size: 9.5pt, fill: subtle)[#a.institution]
-      #if "detail" in a and a.detail != none and a.detail != "" [
-        \ #text(size: 9pt, style: "italic", fill: subtle)[#a.detail]
+  #block(breakable: false)[
+    #grid(
+      columns: (1fr, auto),
+      gutter: 0.5em,
+      [
+        #text(weight: "bold")[#a.name] \
+        #text(size: 9.5pt, fill: subtle)[#a.institution]
+        #if "detail" in a and a.detail != none and a.detail != "" [
+          \ #text(size: 9pt, style: "italic", fill: subtle)[#a.detail]
+        ]
+      ],
+      align(right)[
+        #box(
+          fill: rgb("#fefce8"),
+          stroke: 0.5pt + rgb("#fde68a"),
+          radius: 3pt,
+          inset: (x: 6pt, y: 2pt),
+        )[#text(size: 9pt, weight: "bold", fill: rgb("#92400e"))[#a.year]]
       ]
-    ],
-    align(right)[
-      #box(
-        fill: rgb("#fefce8"),
-        stroke: 0.5pt + rgb("#fde68a"),
-        radius: 3pt,
-        inset: (x: 6pt, y: 2pt),
-      )[#text(size: 9pt, weight: "bold", fill: rgb("#92400e"))[#a.year]]
-    ]
-  )
-  #v(0.35em)
+    )
+    #v(0.35em)
+  ]
 ]
