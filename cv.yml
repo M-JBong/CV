@@ -114,6 +114,10 @@ teaching:
     activity: General Chemistry Laboratory 1
     period: Spring 2026
     desc: Serving as course instructor for general chemistry laboratory.
+  - type: Lecturer
+    activity: Inorganic Chemistry Laboratory
+    period: Fall 2026
+    desc: Serving as course instructor for inorganic chemistry laboratory.
   - type: Mentoring
     activity: CURT Undergraduate Research
     period: "Feb – Jul 2024"

@@ -42,6 +42,7 @@ const data = {
     { type:"TA", activity:"General Chemistry Laboratory 2", period:"Fall 2022, 2024", desc:"Supervised lab sessions for general chemistry." },
     { type:"TA", activity:"Inorganic Chemistry Laboratory", period:"Fall 2023, 2024, 2025", desc:"Instructed inorganic synthesis experiments." },
     { type:"Lecturer", activity:"General Chemistry Laboratory 1", period:"Spring 2026", desc:"Serving as course instructor for general chemistry laboratory." },
+    { type:"Lecturer", activity:"Inorganic Chemistry Laboratory", period:"Fall 2026", desc:"Serving as course instructor for inorganic chemistry laboratory." },
   ],
   awards:[
     { name:"Excellence in Poster Presentation Award", institution:"Inorganic Chemistry Division, Korean Chemical Society (대한화학회 무기분과회)", year:"2025", detail:"Second Coordination Sphere Engineering for Efficient and Selective CO₂-to-Formate Conversion of Mn(I) Bipyridyl Complexes: Steric and Brønsted Acidity/Basicity Influence of Alcohol and Alkyloxy Pendants and Its Mechanistic Investigation" },
