@@ -8,7 +8,7 @@ const data = {
   name: "Min-Jong Bong",
   title: "Ph.D. Candidate in Inorganic Chemistry",
   affiliation: "Korea University · Advisor: Prof. Ho-Jin Son",
-  updated: "2026-07-15 11:06 KST",
+  updated: "2026-07-17 11:20 KST",
   email: "bong1464@korea.ac.kr",
   github: "github.com/M-JBong",
   scholar: "https://scholar.google.com/citations?hl=ko&user=5ujZumkAAAAJ",
@@ -32,7 +32,7 @@ const data = {
     { degree:"B.S., Advanced Materials Chemistry", institution:"Korea University (Sejong)", dept:"", period:"Mar 2018 – Feb 2022", advisor:"" },
   ],
   skills: {
-    "Technical":["Organic & organometallic synthesis","Glovebox & Schlenk techniques","Air-sensitive compound handling","Photocatalysis","3D Graphic Design (Adobe Dimension)"],
+    "Technical":["Organic & organometallic synthesis","Glovebox & Schlenk techniques","Air-sensitive compound handling","Photocatalysis","Sublimation purification","3D Graphic Design (Adobe Dimension)"],
     "Instrumental":["Operando FTIR","Cyclic Voltammetry","UV-Vis Spectroscopy","Quantum Yield Measurement","Single-crystal XRD","Structure refinement (SHELXTL/SHELXL)","NMR, ESI-MS, GC-MS","GC-TCD, HPLC"],
     "Computational":["DFT (ORCA, Gaussian)","CPCM solvation","Reaction pathway mapping","Python (computational data automation & visualization)","AI-assisted computational workflow (Claude Code)"],
   },
