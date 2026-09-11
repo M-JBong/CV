@@ -7,7 +7,7 @@ email: bong1464@korea.ac.kr
 github: github.com/M-JBong
 orcid: "0009-0000-7738-1321"
 scholar: https://scholar.google.com/citations?hl=ko&user=5ujZumkAAAAJ
-updated: "2026-09-11 12:00 KST"
+updated: "2026-09-11 10:58 KST"
 updated_date: "2026-09-11"
 
 about: >
@@ -59,6 +59,7 @@ publications:
     journal: Chemical Science
     publisher: Royal Society of Chemistry
     year: "2026"
+    vol: "17 (19), 9535–9551"
     doi: 10.1039/D5SC09412G
     note: "first author"
   - title: "Efficient and Durable Photochemical CO₂ Reduction by TiO₂-Immobilized Metal Porphyrin Catalysts"
