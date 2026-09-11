@@ -7,7 +7,7 @@ email: bong1464@korea.ac.kr
 github: github.com/M-JBong
 orcid: "0009-0000-7738-1321"
 scholar: https://scholar.google.com/citations?hl=ko&user=5ujZumkAAAAJ
-updated: "2026-09-11 10:58 KST"
+updated: "2026-09-11 10:59 KST"
 updated_date: "2026-09-11"
 
 about: >
@@ -140,6 +140,10 @@ teaching:
     desc: Instructed inorganic synthesis experiments.
 
 awards:
+  - name: Impressive Poster Award
+    institution: "14th Asian and Oceanian Photochemistry Conference (APC 2026)"
+    year: "2026"
+    detail: "A Secondary-Sphere Proton Channel Accelerating Metal–Hydride Formation in Mn(I) Catalysts for Selective CO₂-to-Formate Conversion"
   - name: Excellence in Poster Presentation Award
     institution: "Inorganic Chemistry Division, Korean Chemical Society"
     year: "2025"
