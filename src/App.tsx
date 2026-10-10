@@ -34,7 +34,7 @@ const data = {
   skills: {
     "Technical":["Organic & organometallic synthesis","Glovebox & Schlenk techniques","Air-sensitive compound handling","Photocatalysis","Sublimation purification","3D Graphic Design (Adobe Dimension)"],
     "Instrumental":["Operando FTIR","Cyclic Voltammetry","UV-Vis Spectroscopy","Quantum Yield Measurement","Single-crystal XRD","Structure refinement (SHELXTL/SHELXL)","NMR, ESI-MS, GC-MS","GC-TCD, HPLC"],
-    "Computational":["DFT (ORCA, Gaussian)","CPCM solvation","Reaction pathway mapping","Python (computational data automation & visualization)","AI-assisted computational workflow (Claude Code)"],
+    "Computational":["DFT (ORCA, Gaussian)","CPCM solvation","ChemDraw (chemical structure & scheme drawing)","Origin (data analysis & plotting)","Reaction pathway mapping","Python (computational data automation & visualization)","AI-assisted computational workflow (Claude Code)"],
   },
   teaching: [
     { type:"Mentoring", activity:"CURT Undergraduate Research", period:"Feb – Jul 2024", desc:"Mentored undergraduates in research design and execution." },
