@@ -7,8 +7,8 @@ email: bong1464@korea.ac.kr
 github: github.com/M-JBong
 orcid: "0009-0000-7738-1321"
 scholar: https://scholar.google.com/citations?hl=ko&user=5ujZumkAAAAJ
-updated: "2026-09-11 10:59 KST"
-updated_date: "2026-09-11"
+updated: "2026-10-10 16:05 KST"
+updated_date: "2026-10-10"
 
 about: >
   Ph.D. candidate in Inorganic Chemistry at Korea University (expected February 2027),
@@ -109,6 +109,8 @@ skills:
   Computational:
     - DFT (ORCA, Gaussian)
     - CPCM solvation
+    - ChemDraw (chemical structure & scheme drawing)
+    - Origin (data analysis & plotting)
     - Reaction pathway mapping
     - Python (computational data automation & visualization)
     - AI-assisted computational workflow (Claude Code)
